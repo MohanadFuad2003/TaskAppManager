@@ -1,0 +1,16 @@
+﻿@model List<TaskManagerApp.Models.TaskItem>
+@{
+    ViewData["Title"] = "My Tasks";
+}
+<link rel="stylesheet" href="~/css/index.css" />
+
+<div class="container tasks-wrap">
+    <partial name="~/Views/Home/Partials/_Header.cshtml" />
+    <partial name="~/Views/Home/Partials/_Toolbar.cshtml" />
+    <partial name="~/Views/Shared/Partials/_Alerts.cshtml" />
+    <partial name="~/Views/Home/Partials/_TaskList.cshtml" model="Model" />
+</div>
+
+@section Scripts {
+    <script src="~/js/index.js" asp-append-version="true"></script>
+}

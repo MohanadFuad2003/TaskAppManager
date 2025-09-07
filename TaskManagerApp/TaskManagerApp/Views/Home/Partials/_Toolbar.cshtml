@@ -1,0 +1,36 @@
+﻿@* Views/Home/Partials/_Toolbar.cshtml *@
+@{
+    var filter = ViewBag.Filter as string ?? "all";
+}
+<div class="toolbar">
+    <div class="filters">
+        <ul class="nav">
+            <li class="nav-item">
+                <a asp-controller="Index" asp-action="Index" asp-route-filter="all"
+                   class="nav-link @(filter == "all" ? "active" : "")">
+                    <i class="bi bi-ui-checks-grid"></i> All
+                    <span class="badge rounded-pill ms-1">@ViewBag.TotalCount</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Index" asp-action="Index" asp-route-filter="pending"
+                   class="nav-link @(filter == "pending" ? "active" : "")">
+                    <i class="bi bi-hourglass-split"></i> Pending
+                    <span class="badge rounded-pill ms-1">@ViewBag.PendingCount</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Index" asp-action="Index" asp-route-filter="done"
+                   class="nav-link @(filter == "done" ? "active" : "")">
+                    <i class="bi bi-check2-circle"></i> Done
+                    <span class="badge rounded-pill ms-1">@ViewBag.DoneCount</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="small d-none d-sm-block text-dynamic">
+        Filter: <strong>@filter</strong>
+    </div>
+</div>
+

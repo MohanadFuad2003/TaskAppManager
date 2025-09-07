@@ -1,0 +1,87 @@
+﻿@* Views/Home/Partials/_TaskCard.cshtml *@
+@model TaskManagerApp.Models.TaskItem
+
+<div class="task-card">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <!-- Left: Title + Status + Difficulty -->
+        <div class="d-flex flex-column flex-grow-1">
+            <div class="d-flex align-items-center gap-2">
+                <span class="status-dot @(Model.IsDone ? "dot-done" : "dot-pending")"></span>
+                <span class="task-title">@Model.Title</span>
+
+                @if (Model.IsDone)
+                {
+                    <span class="status-chip badge bg-success ms-2">
+                        <i class="bi bi-check2"></i> Done
+                    </span>
+                }
+                else
+                {
+                    <span class="status-chip badge bg-warning text-dark ms-2">
+                        <i class="bi bi-hourglass"></i> Pending
+                    </span>
+                }
+
+                <!-- Difficulty Chip -->
+                @if (!string.IsNullOrWhiteSpace(Model.Difficulty))
+                {
+                    var diffClass = Model.Difficulty switch
+                    {
+                        "Easy" => "bg-info text-dark",
+                        "Medium" => "bg-warning text-dark fw-bold",
+                        "Hard" => "bg-danger",
+                        _ => "bg-secondary"
+                    };
+                    <span class="badge @diffClass ms-2">
+                        <i class="bi bi-fire"></i> @Model.Difficulty
+                    </span>
+                }
+            </div>
+
+            <!-- Deadline / Countdown -->
+            @if (Model.DueDate.HasValue && !Model.IsDone)
+            {
+                <div class="small mt-1 due-info">
+                    <i class="bi bi-calendar-event"></i>
+                    <span class="due-text">Due: @Model.DueDate.Value.ToString("dd/MM/yyyy")</span>
+
+                    <span class="countdown badge bg-secondary"
+                          data-deadline="@Model.DueDate.Value.ToUniversalTime().ToString("o")"
+                          id="countdown-@Model.Id">
+                        <i class="bi bi-clock-history me-1"></i>
+                        <span class="time-text">Loading...</span>
+                    </span>
+                </div>
+            }
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="d-flex align-items-center gap-2 actions">
+            <small class="text-dynamic me-2">ID: @Model.Id</small>
+
+            @if (!Model.IsDone)
+            {
+                <form asp-controller="MarkAsDone" asp-action="MarkAsDone" method="post" class="m-0">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <button type="submit" class="btn btn-sm btn-outline-success" title="Mark as Done">
+                        <i class="bi bi-check-lg"></i>
+                    </button>
+                </form>
+            }
+
+            <a asp-controller="Edit" asp-action="Edit" asp-route-id="@Model.Id"
+               class="btn btn-sm btn-outline-primary" title="Edit Task">
+                <i class="bi bi-pencil-square"></i>
+            </a>
+
+            @if (Model.IsDone)
+            {
+                <a asp-controller="Delete" asp-action="Delete" asp-route-id="@Model.Id"
+                   class="btn btn-sm btn-outline-danger" title="Delete Task">
+                    <i class="bi bi-trash"></i>
+                </a>
+            }
+        </div>
+    </div>
+</div>

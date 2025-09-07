@@ -1,0 +1,73 @@
+﻿@model TaskManagerApp.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!-- رابط ملف CSS الخارجي -->
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+
+<div class="login-wrap">
+    <div class="page-head">
+        <div class="icon"><i class="bi bi-box-arrow-in-right"></i></div>
+        <h2>Login</h2>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            @if (ViewBag.SuccessMessage != null)
+            {
+                <div class="alert alert-success text-center">
+                    @ViewBag.SuccessMessage
+                </div>
+            }
+
+            @if (!ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0)
+            {
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                            <li>@error.ErrorMessage</li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            <form asp-action="Login" method="post" class="card-surface p-4">
+                @* Anti-forgery token يضاف تلقائيًا مع Tag Helpers، وهذا سطر اختياري للاطمئنان *@
+                @Html.AntiForgeryToken()
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" autocomplete="email" placeholder="you@example.com" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 position-relative">
+                    <label asp-for="Password" class="form-label"></label>
+                    <div class="input-group">
+                        <input asp-for="Password" type="password" class="form-control" id="passwordField" autocomplete="current-password" placeholder="••••••••" />
+                        <button type="button" class="btn btn-outline-secondary" onclick="togglePassword()" title="Show/Hide Password" aria-label="Show or hide password">
+                            <i class="bi bi-eye" id="toggleIcon"></i>
+                        </button>
+                    </div>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+
+            <div class="auth-cta">
+                <span>Don't have an account?</span>
+                <!-- ✅ التعديل هنا -->
+                <a asp-controller="Register" asp-action="Register">Register here</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/login.js" asp-append-version="true"></script>
+}

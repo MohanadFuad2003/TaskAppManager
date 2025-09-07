@@ -1,0 +1,126 @@
+﻿@* Views/Shared/PartialsLayout/_Navbar.cshtml *@
+@using System
+@using System.Linq
+@{
+    var displayName = User?.Claims.FirstOrDefault(c => c.Type == "FullName")?.Value
+                      ?? User?.Identity?.Name
+                      ?? "User";
+    var initials = string.Join("",
+        (displayName ?? "")
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+            .Select(p => char.ToUpperInvariant(p[0]))
+            .Take(2)
+    );
+}
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+
+            <!-- Brand -->
+            <a class="navbar-brand fw-semibold" asp-controller="Index" asp-action="Index">TaskManagerApp</a>
+
+            <!-- Clock -->
+            <div class="me-auto ms-3">
+                <div id="clock" class="clock-ring"></div>
+            </div>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-3">
+
+                    <!-- Theme Selector -->
+                    <li class="nav-item text-white">
+                        <label for="themeSelector" class="form-label text-light mb-1 d-block small">Theme</label>
+                        <div class="position-relative">
+                            <select id="themeSelector" class="form-select form-select-sm pe-4" aria-label="Theme selector"></select>
+                            <span class="position-absolute end-0 top-50 translate-middle-y pe-2 text-muted">▼</span>
+                        </div>
+                    </li>
+
+                    <!-- Clock Style Selector -->
+                    <li class="nav-item text-white">
+                        <label for="clockStyleSelector" class="form-label text-light mb-1 d-block small">Clock Style</label>
+                        <div class="position-relative">
+                            <select id="clockStyleSelector" class="form-select form-select-sm pe-4" aria-label="Clock style selector"></select>
+                            <span class="position-absolute end-0 top-50 translate-middle-y pe-2 text-muted">▼</span>
+                        </div>
+                    </li>
+
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-sm" asp-controller="Index" asp-action="Index">Home</a>
+                    </li>
+
+                    <!-- Stats -->
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light btn-sm" asp-controller="Stats" asp-action="Stats">Stats</a>
+                        </li>
+                    }
+
+                    <!-- Auth / User Menu -->
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item dropdown user-menu">
+                            <a class="nav-link d-flex align-items-center gap-2 user-trigger"
+                               href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="avatar-initials">@initials</span>
+                                <span class="d-none d-sm-inline user-name text-truncate">@displayName</span>
+                                <i class="bi bi-chevron-down chev small"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-end shadow user-dropdown" aria-labelledby="userDropdown">
+                                <li>
+                                    <div class="px-3 py-2 small text-muted">
+                                        <div class="fw-semibold">@displayName</div>
+                                        <div class="opacity-75">@User.Identity!.Name</div>
+                                    </div>
+                                </li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Index" asp-action="Index">
+                                        <i class="bi bi-house me-2"></i> My Tasks
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Stats" asp-action="Stats">
+                                        <i class="bi bi-graph-up me-2"></i> Stats
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="EditProfile" asp-action="EditProfile">
+                                        <i class="bi bi-person-gear me-2"></i> Edit Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="EditProfile" asp-action="ChangePassword">
+                                        <i class="bi bi-key me-2"></i> Change Password
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li>
+                                    <a class="dropdown-item text-danger" asp-controller="Logout" asp-action="Logout">
+                                        <i class="bi bi-box-arrow-right me-2"></i> Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Register" asp-action="Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Login" asp-action="Login">Login</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

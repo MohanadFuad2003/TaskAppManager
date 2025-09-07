@@ -1,0 +1,23 @@
+﻿@* Views/Home/Partials/_TaskList.cshtml *@
+@model List<TaskManagerApp.Models.TaskItem>
+
+@if (!Model.Any())
+{
+    <div class="empty my-4">
+        <i class="bi bi-inboxes"></i>
+        <div class="lead mb-1">No tasks yet</div>
+        <p class="mb-3" style="color: var(--fg);">Start by adding your first task.</p>
+        <a asp-controller="Create" asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-lg"></i> Add Task
+        </a>
+    </div>
+}
+else
+{
+    <div class="vstack gap-3 mb-4">
+        @foreach (var task in Model)
+        {
+            @await Html.PartialAsync("~/Views/Home/Partials/_TaskCard.cshtml", task)
+        }
+    </div>
+}

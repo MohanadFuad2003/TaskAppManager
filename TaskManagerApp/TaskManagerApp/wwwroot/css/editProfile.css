@@ -1,0 +1,87 @@
+﻿/* ===== Edit Profile & Change Password Styles ===== */
+
+.edit-profile-wrap, .change-password-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* Page head */
+.page-head {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    margin-bottom: 1rem;
+    color: var(--fg);
+}
+
+    .page-head h2 {
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .page-head i {
+        color: var(--accent);
+    }
+
+/* Form card */
+.card-surface {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
+
+    /* Inputs */
+    .card-surface .form-control {
+        background: var(--bg);
+        color: var(--fg);
+        border: 1px solid var(--border);
+    }
+
+        .card-surface .form-control:focus {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 .2rem color-mix(in oklab, var(--brand) 25%, transparent);
+        }
+
+    /* Buttons */
+    .card-surface .btn {
+        border-radius: 10px;
+        font-weight: 500;
+    }
+
+    .card-surface .btn-primary {
+        background: var(--brand);
+        border-color: var(--brand);
+    }
+
+        .card-surface .btn-primary:hover {
+            background: color-mix(in oklab, var(--brand) 85%, black);
+        }
+
+    .card-surface .btn-warning {
+        color: #fff;
+        background: var(--difficulty-medium);
+        border-color: var(--difficulty-medium);
+    }
+
+        .card-surface .btn-warning:hover {
+            background: color-mix(in oklab, var(--difficulty-medium) 85%, black);
+        }
+
+/* Alerts */
+.alert {
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+/* Validation */
+.text-danger {
+    font-size: .9rem;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .edit-profile-wrap, .change-password-wrap {
+        padding: 0 .5rem;
+    }
+}

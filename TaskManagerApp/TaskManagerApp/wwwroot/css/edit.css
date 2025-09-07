@@ -1,0 +1,113 @@
+﻿.edit-wrap {
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.page-head {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin: .5rem 0 1rem;
+}
+
+    .page-head .icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        /* بدائل آمنة */
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        color: var(--fg);
+        box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+
+    .page-head h2 {
+        margin: 0;
+        font-weight: 800;
+        letter-spacing: .2px;
+        color: var(--fg)
+    }
+
+.card-surface {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    box-shadow: 0 12px 32px rgba(0,0,0,.08);
+}
+
+.form-label {
+    font-weight: 700;
+    color: var(--fg)
+}
+
+.form-control {
+    background: var(--card-bg);
+    color: var(--fg);
+    border: 1px solid var(--border);
+    border-radius: .75rem;
+    padding: .6rem .9rem;
+    transition: .15s ease;
+}
+
+    .form-control:focus {
+        border-color: var(--brand);
+        /* ظل آمن */
+        box-shadow: 0 0 0 .25rem rgba(13,110,253,.25); /* تقريب لبراند البوتستراب */
+        outline: none;
+    }
+
+.help {
+    font-size: .85rem;
+    color: var(--muted);
+    margin-top: .25rem
+}
+
+/* تبديل الحالة (يبقى Checkbox نفس المنطق) */
+.form-check.form-switch .form-check-input {
+    width: 2.6em;
+    height: 1.3em;
+    background-color: #e9ecef;
+    border-color: var(--border);
+    cursor: pointer;
+}
+
+    .form-check.form-switch .form-check-input:checked {
+        background-color: #0d6efd; /* بديل آمن للـ brand */
+        border-color: #0d6efd;
+    }
+
+.form-check-label {
+    color: var(--fg);
+    font-weight: 600;
+    cursor: pointer
+}
+
+.actions {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap
+}
+
+.btn {
+    border-radius: .8rem
+}
+
+.btn-primary {
+    box-shadow: 0 10px 26px rgba(0,0,0,.1);
+    transition: transform .15s ease;
+}
+
+    .btn-primary:hover {
+        transform: translateY(-1px)
+    }
+
+@media (max-width:576px) {
+    .actions .btn {
+        width: 100%
+    }
+}
+
+

@@ -1,0 +1,54 @@
+﻿@model TaskManagerApp.Models.TaskItem
+
+@{
+    ViewData["Title"] = "Edit Task";
+}
+
+<link rel="stylesheet" href="~/css/edit.css" asp-append-version="true" />
+
+<div class="edit-wrap">
+    <div class="page-head">
+        <div class="icon"><i class="bi bi-pencil-square"></i></div>
+        <h2>Edit Task</h2>
+    </div>
+
+    <form asp-controller="Edit" asp-action="Edit" method="post" class="card-surface p-4">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+
+        <!-- العنوان -->
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label">Title</label>
+            <input asp-for="Title" class="form-control" placeholder="Update your task title..." />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <!-- الحالة -->
+        <div class="mb-4 form-check form-switch">
+            <input asp-for="IsDone" class="form-check-input" id="isDoneSwitch" />
+            <label asp-for="IsDone" class="form-check-label" for="isDoneSwitch">Mark as Done</label>
+        </div>
+
+        <!-- الصعوبة -->
+        <div class="mb-3">
+            <label asp-for="Difficulty" class="form-label">Difficulty</label>
+            <select asp-for="Difficulty" class="form-select">
+                <option value="">-- Select Difficulty --</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+            <span asp-validation-for="Difficulty" class="text-danger"></span>
+        </div>
+
+        <!-- الإجراءات -->
+        <div class="actions">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save2 me-1"></i> Save Changes
+            </button>
+            <a asp-controller="Index" asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left-short me-1"></i> Cancel
+            </a>
+        </div>
+    </form>
+</div>

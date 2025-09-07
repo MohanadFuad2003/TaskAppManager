@@ -1,0 +1,61 @@
+﻿@model TaskManagerApp.Models.TaskItem
+
+@{
+    ViewData["Title"] = "Delete Task";
+}
+
+<link rel="stylesheet" href="~/css/delete.css" asp-append-version="true" />
+
+<div class="delete-wrap">
+    <div class="page-head">
+        <div class="icon"><i class="bi bi-exclamation-triangle"></i></div>
+        <h2>Confirm Delete</h2>
+    </div>
+
+    <div class="card-surface p-4 mb-3 warn">
+        <div class="d-flex align-items-start gap-2">
+            <i class="bi bi-shield-exclamation fs-4"></i>
+            <div>
+                <strong>Warning:</strong>
+                <span>Are you sure you want to delete the following task? This action cannot be undone.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="meta mb-4">
+        <div class="row g-2 align-items-center">
+            <div class="col-12">
+                <span class="label me-2">Title:</span>
+                <strong>@Model.Title</strong>
+            </div>
+            <div class="col-12">
+                <span class="label me-2">Status:</span>
+                @if (Model.IsDone)
+                {
+                    <span class="status-badge status-done"><i class="bi bi-check2"></i> Done</span>
+                }
+                else
+                {
+                    <span class="status-badge status-pending"><i class="bi bi-hourglass"></i> Pending</span>
+                }
+            </div>
+            <div class="col-12 text-muted small">
+                <span class="label me-2">ID:</span>@Model.Id
+            </div>
+        </div>
+    </div>
+
+    <form asp-controller="Delete" asp-action="Delete" method="post" class="card-surface p-4">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+
+        <div class="actions">
+            <button type="submit" class="btn btn-danger">
+                <i class="bi bi-trash me-1"></i> Yes, Delete
+            </button>
+            <a asp-controller="Index" asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left-short me-1"></i> Cancel
+            </a>
+        </div>
+    </form>
+</div>

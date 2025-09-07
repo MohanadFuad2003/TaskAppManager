@@ -1,0 +1,65 @@
+﻿@model TaskManagerApp.Models.TaskItem
+
+@{
+    ViewData["Title"] = "Add New Task";
+}
+
+<link rel="stylesheet" href="~/css/create.css" asp-append-version="true" />
+
+<div class="add-wrap">
+    <div class="page-head">
+        <div class="icon"><i class="bi bi-plus-lg"></i></div>
+        <h2>Add New Task</h2>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <form asp-controller="Create" asp-action="Create" method="post" class="card-surface p-4">
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <!-- 📝 عنوان المهمة -->
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label"></label>
+                    <input asp-for="Title" class="form-control" placeholder="e.g. Submit lab report" />
+                    <div class="help">Keep it short and clear.</div>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <!-- ✅ اختيار الصعوبة -->
+                <div class="mb-3">
+                    <label class="form-label">Difficulty</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Difficulty" id="easy" value="Easy" />
+                        <label class="form-check-label" for="easy">Easy (3 days)</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Difficulty" id="medium" value="Medium" />
+                        <label class="form-check-label" for="medium">Medium (7 days)</label>
+                    </div>
+                    <div class="form-check mb-1">
+                        <input class="form-check-input" type="radio" name="Difficulty" id="hard" value="Hard" />
+                        <label class="form-check-label" for="hard">Hard (10 days)</label>
+                    </div>
+                    <span asp-validation-for="Difficulty" class="text-danger"></span>
+                </div>
+
+                <!-- ✅ تم إنجازه -->
+                <div class="form-check mb-4">
+                    <input asp-for="IsDone" class="form-check-input" id="isDone" />
+                    <label asp-for="IsDone" class="form-check-label" for="isDone">Mark as Done</label>
+                </div>
+
+                <!-- ✅ زر الإرسال -->
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-check2-circle me-1"></i> Add Task
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

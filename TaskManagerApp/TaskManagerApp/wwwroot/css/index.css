@@ -1,0 +1,240 @@
+﻿/* ====== Harmonized with layout theme variables ====== */
+.tasks-wrap {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+    .page-head h2 {
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: .2px;
+        color: var(--fg);
+    }
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: .75rem;
+    padding: .75rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,.06);
+}
+
+.filters .nav-link {
+    border: 1px solid var(--border) !important;
+    color: var(--fg);
+    background: color-mix(in oklab, var(--card-bg) 85%, transparent);
+    padding: .35rem .75rem;
+    border-radius: 999px !important;
+    transition: .2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+}
+
+    .filters .nav-link .badge {
+        background: var(--border) !important;
+        color: var(--fg);
+    }
+
+    .filters .nav-link:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    }
+
+    .filters .nav-link.active,
+    .filters .nav-link:focus {
+        background: color-mix(in oklab, var(--brand) 16%, var(--card-bg));
+        border-color: color-mix(in oklab, var(--brand) 40%, var(--border)) !important;
+        color: var(--fg);
+    }
+
+/* ====== Task Card ====== */
+.task-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: .9rem 1rem;
+    box-shadow: 0 10px 28px rgba(0,0,0,.08);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+    .task-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 36px rgba(0,0,0,.12);
+        border-color: color-mix(in oklab, var(--brand) 30%, var(--border));
+    }
+
+.task-title {
+    font-weight: 700;
+    letter-spacing: .2px;
+    color: var(--fg);
+}
+
+.status-chip {
+    border-radius: 999px;
+    font-size: .75rem;
+    padding: .2rem .55rem;
+}
+
+.status-dot {
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: .35rem;
+}
+
+.dot-done {
+    background: #22c55e;
+}
+
+.dot-pending {
+    background: #f59e0b;
+}
+
+.actions .btn {
+    border-radius: .6rem;
+}
+
+    .actions .btn i {
+        vertical-align: -2px;
+    }
+
+/* Empty State */
+.empty {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    color: var(--fg);
+    box-shadow: 0 10px 28px rgba(0,0,0,.08);
+}
+
+    .empty i {
+        font-size: 2rem;
+        opacity: .9;
+        margin-bottom: .5rem;
+        display: block;
+        color: color-mix(in oklab, var(--brand) 70%, var(--fg));
+    }
+
+    .empty .lead {
+        font-weight: 700;
+    }
+
+/* Responsive */
+@media (max-width: 576px) {
+    .page-head {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters {
+        width: 100%;
+        justify-content: center;
+        gap: .5rem;
+    }
+
+        .filters .nav {
+            flex-wrap: wrap;
+            gap: .5rem;
+            justify-content: center;
+        }
+}
+
+/* ====== Due Date Info Styling ====== */
+.task-card .due-info {
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    color: var(--muted, #6c757d);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+    .task-card .due-info i {
+        font-size: 1rem;
+        color: var(--muted, #6c757d);
+    }
+
+.task-card .due-text {
+    font-weight: 500;
+}
+
+    .task-card .due-text.text-success {
+        color: var(--success, #198754);
+    }
+
+    .task-card .due-text.text-warning {
+        color: var(--warning, #ffc107);
+    }
+
+    .task-card .due-text.text-danger {
+        color: var(--danger, #dc3545);
+    }
+
+/* ====== Countdown Styles ====== */
+.countdown {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    display: inline-block;
+    background-color: var(--bg-muted, #f8f9fa);
+    color: var(--fg, #212529);
+    transition: all 0.3s ease-in-out;
+}
+
+    .countdown .text-success {
+        color: #198754;
+        font-weight: bold;
+    }
+
+    .countdown .text-warning {
+        color: #ffc107;
+        font-weight: bold;
+    }
+
+    .countdown .text-danger {
+        color: #dc3545;
+        font-weight: bold;
+    }
+
+/* ====== Difficulty Badge (Dynamic) ====== */
+.badge.easy {
+    background-color: var(--difficulty-easy);
+    color: #000;
+    font-weight: 600;
+}
+
+.badge.medium {
+    background-color: var(--difficulty-medium);
+    color: #fff;
+    font-weight: 600;
+}
+
+.badge.hard {
+    background-color: var(--difficulty-hard);
+    color: #fff;
+    font-weight: 600;
+}

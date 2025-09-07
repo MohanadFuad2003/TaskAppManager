@@ -1,0 +1,515 @@
+﻿:root {
+    --bg: #ffffff;
+    --fg: #212529;
+    --muted: #6c757d;
+    --brand: #0d6efd;
+    --nav-bg: #0d1117;
+    --nav-fg: #e6edf3;
+    --card-bg: #ffffff;
+    --border: rgba(0,0,0,.08);
+    --accent: #84d2ff;
+    --shadow: 0 6px 20px rgba(0,0,0,.12);
+    /* Difficulty Colors (default) */
+    --difficulty-easy: #b2f2bb;
+    --difficulty-medium: #ffcc00;
+    --difficulty-hard: #d6336c;
+}
+
+/* ===== Theme base (استخدم contains بدل starts-with) ===== */
+body[class*="theme-"] {
+    background: var(--bg);
+    color: var(--fg);
+    /* Bridge: غذي متغيرات Bootstrap من ثيمك */
+    --bs-body-bg: var(--bg);
+    --bs-body-color: var(--fg);
+    --bs-border-color: var(--border);
+    --bs-link-color: var(--brand);
+    --bs-heading-color: var(--fg);
+    --bs-secondary-color: var(--muted);
+    --bs-card-bg: var(--card-bg);
+    --bs-card-border-color: var(--border);
+    --bs-card-color: var(--fg);
+    --bs-dropdown-bg: var(--card-bg);
+    --bs-dropdown-color: var(--fg);
+    --bs-dropdown-link-color: var(--fg);
+    --bs-dropdown-link-hover-bg: color-mix(in oklab, var(--card-bg) 85%, #000 15%);
+    --bs-dropdown-border-color: var(--border);
+    --bs-navbar-color: var(--nav-fg);
+    --bs-navbar-hover-color: var(--nav-fg);
+    --bs-navbar-brand-color: var(--nav-fg);
+    --bs-form-control-bg: var(--bg);
+    --bs-form-control-color: var(--fg);
+    --bs-form-control-border-color: var(--border);
+    --bs-form-select-bg: var(--bg);
+    --bs-form-select-color: var(--fg);
+    --bs-form-select-border-color: var(--border);
+    --bs-modal-bg: var(--card-bg);
+    --bs-modal-color: var(--fg);
+    --bs-modal-border-color: var(--border);
+    --bs-offcanvas-bg: var(--card-bg);
+    --bs-offcanvas-color: var(--fg);
+    --bs-table-bg: var(--card-bg);
+    --bs-table-color: var(--fg);
+    --bs-table-border-color: var(--border);
+    --bs-list-group-bg: var(--card-bg);
+    --bs-list-group-color: var(--fg);
+    --bs-list-group-border-color: var(--border);
+}
+
+/* ===== Themes ===== */
+body.theme-light {
+    --bg: #ffffff;
+    --fg: #212529;
+    --muted: #6c757d;
+    --brand: #0d6efd;
+    --nav-bg: #0d1117;
+    --nav-fg: #e6edf3;
+    --card-bg: #ffffff;
+    --border: rgba(0,0,0,.08);
+    --accent: #84d2ff;
+    --difficulty-easy: #b2f2bb;
+    --difficulty-medium: #ffcc00;
+    --difficulty-hard: #d6336c;
+}
+
+body.theme-dark {
+    --bg: #0f1115;
+    --fg: #e8eef5;
+    --muted: #9aa4b2;
+    --brand: #7aa2f7;
+    --nav-bg: #0a0c10;
+    --nav-fg: #e8eef5;
+    --card-bg: #151922;
+    --border: rgba(255,255,255,.08);
+    --accent: #7aa2f7;
+    --difficulty-easy: #2ecc71;
+    --difficulty-medium: #f39c12;
+    --difficulty-hard: #e74c3c;
+}
+
+body.theme-blue {
+    --bg: #e6f0ff;
+    --fg: #003366;
+    --muted: #335b8c;
+    --brand: #0a58ca;
+    --nav-bg: #02284f;
+    --nav-fg: #dfeaff;
+    --card-bg: #f6f9ff;
+    --border: rgba(0,51,102,.12);
+    --accent: #7fb8ff;
+    --difficulty-easy: #a8e6cf;
+    --difficulty-medium: #ffd54f;
+    --difficulty-hard: #d32f2f;
+}
+
+body.theme-navy {
+    --bg: #0a1d37;
+    --fg: #a8c0ff;
+    --muted: #8aa0d6;
+    --brand: #5b8cff;
+    --nav-bg: #07152b;
+    --nav-fg: #cfe0ff;
+    --card-bg: #0f2646;
+    --border: rgba(255,255,255,.08);
+    --accent: #8ec5ff;
+    --difficulty-easy: #81c784;
+    --difficulty-medium: #ffca28;
+    --difficulty-hard: #ef5350;
+}
+
+body.theme-purple {
+    --bg: #f3e5f5;
+    --fg: #4a148c;
+    --muted: #6b3fa0;
+    --brand: #7b1fa2;
+    --nav-bg: #3a0a5b;
+    --nav-fg: #efe3ff;
+    --card-bg: #faefff;
+    --border: rgba(74,20,140,.12);
+    --accent: #c7a2ff;
+    --difficulty-easy: #aed581;
+    --difficulty-medium: #ffb300;
+    --difficulty-hard: #d81b60;
+}
+
+body.theme-royalpurple {
+    --bg: #2e003e;
+    --fg: #dabfff;
+    --muted: #caa6ff;
+    --brand: #b28dff;
+    --nav-bg: #240030;
+    --nav-fg: #eddcff;
+    --card-bg: #3b0052;
+    --border: rgba(255,255,255,.08);
+    --accent: #f0d9ff;
+    --difficulty-easy: #66bb6a;
+    --difficulty-medium: #ffa000;
+    --difficulty-hard: #e53935;
+}
+
+body.theme-graymetal {
+    --bg: #101214;
+    --fg: #e4e7eb;
+    --muted: #a9b0b8;
+    --brand: #6b778c;
+    --nav-bg: #0b0d10;
+    --nav-fg: #e4e7eb;
+    --card-bg: #15181c;
+    --border: rgba(255,255,255,.08);
+    --accent: #8fa3bf;
+    --difficulty-easy: #7cb342;
+    --difficulty-medium: #ffb300;
+    --difficulty-hard: #e53935;
+}
+
+body.theme-green {
+    --bg: #0e1512;
+    --fg: #e4f2ea;
+    --muted: #a6c3b5;
+    --brand: #22c55e;
+    --nav-bg: #0a100d;
+    --nav-fg: #e4f2ea;
+    --card-bg: #12201a;
+    --border: rgba(255,255,255,.08);
+    --accent: #34d399;
+    --difficulty-easy: #22c55e;
+    --difficulty-medium: #f59e0b;
+    --difficulty-hard: #ef4444;
+}
+
+body.theme-deepblue {
+    --bg: #06121f;
+    --fg: #dbeafe;
+    --muted: #93c5fd;
+    --brand: #3b82f6;
+    --nav-bg: #040d18;
+    --nav-fg: #e5f0ff;
+    --card-bg: #0a1a2b;
+    --border: rgba(255,255,255,.08);
+    --accent: #60a5fa;
+    --difficulty-easy: #34d399;
+    --difficulty-medium: #fbbf24;
+    --difficulty-hard: #f87171;
+}
+
+body.theme-chocolate {
+    --bg: #1a120b;
+    --fg: #f5e9dc;
+    --muted: #e0c9b3;
+    --brand: #a97142;
+    --nav-bg: #120c07;
+    --nav-fg: #f5e9dc;
+    --card-bg: #22160d;
+    --border: rgba(255,255,255,.08);
+    --accent: #d4a574;
+    --difficulty-easy: #8bc34a;
+    --difficulty-medium: #ffc107;
+    --difficulty-hard: #e53935;
+}
+
+body.theme-trueblack {
+    --bg: #000;
+    --fg: #eaeaea;
+    --muted: #bdbdbd;
+    --brand: #8ab4f8;
+    --nav-bg: #000;
+    --nav-fg: #eaeaea;
+    --card-bg: #0a0a0a;
+    --border: rgba(255,255,255,.12);
+    --accent: #8ab4f8;
+    --difficulty-easy: #43a047;
+    --difficulty-medium: #ffb300;
+    --difficulty-hard: #e53935;
+}
+
+body.theme-hotred {
+    --bg: #1a0b0b;
+    --fg: #ffecec;
+    --muted: #ffb3b3;
+    --brand: #ef4444;
+    --nav-bg: #120707;
+    --nav-fg: #ffecec;
+    --card-bg: #240e0e;
+    --border: rgba(255,255,255,.08);
+    --accent: #ff6b6b;
+    --difficulty-easy: #81c784;
+    --difficulty-medium: #ffd54f;
+    --difficulty-hard: #ef5350;
+}
+
+body.theme-cyanocean {
+    --bg: #061a1f;
+    --fg: #d9ffff;
+    --muted: #a5f3fc;
+    --brand: #06b6d4;
+    --nav-bg: #041216;
+    --nav-fg: #d9ffff;
+    --card-bg: #0a2329;
+    --border: rgba(255,255,255,.08);
+    --accent: #22d3ee;
+    --difficulty-easy: #34d399;
+    --difficulty-medium: #fbbf24;
+    --difficulty-hard: #ef4444;
+}
+
+body.theme-darkpink {
+    --bg: #1a0d15;
+    --fg: #ffe6f5;
+    --muted: #ffbcd9;
+    --brand: #ec4899;
+    --nav-bg: #120910;
+    --nav-fg: #ffe6f5;
+    --card-bg: #26101f;
+    --border: rgba(255,255,255,.08);
+    --accent: #f472b6;
+    --difficulty-easy: #a3e635;
+    --difficulty-medium: #f59e0b;
+    --difficulty-hard: #f43f5e;
+}
+
+/* ========== GENERIC UI ========== */
+/* لو واجهت خط أبيض بين الهيدر والمحتوى، يمكنك صلب خلفية الهيدر بإلغاء التدرّج تحت */
+.navbar {
+    background: linear-gradient(180deg, var(--nav-bg), color-mix(in oklab, var(--nav-bg) 85%, black));
+    /* بديل صلب:
+       background: var(--nav-bg) !important;
+       background-image: none !important;
+    */
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+    .navbar .navbar-brand,
+    .navbar .nav-link,
+    .navbar .dropdown-item,
+    .navbar .navbar-text {
+        color: var(--nav-fg) !important;
+    }
+
+    .navbar .dropdown-menu {
+        background: color-mix(in oklab, var(--nav-bg) 80%, #0000);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+    }
+
+/* Footer */
+.footer {
+    background: color-mix(in oklab, var(--nav-bg) 92%, #0000);
+    /* أو اجعله صلبًا إن ظهر خط:
+       background: var(--nav-bg) !important;
+       background-image: none !important;
+    */
+    color: var(--nav-fg);
+    border-top: 1px solid var(--border) !important;
+}
+
+/* عناصر شائعة تتبع الثيم */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.text-dynamic {
+    color: var(--muted);
+}
+
+
+.container main .card, .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.text-dynamic {
+    color: var(--muted);
+}
+
+/* Compact controls */
+#themeSelector, #clockStyleSelector {
+    min-width: 160px;
+    background: var(--card-bg);
+    color: var(--fg);
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0,0,0,.08) inset;
+}
+
+    #themeSelector:focus, #clockStyleSelector:focus {
+        outline: none;
+        border-color: var(--brand);
+        box-shadow: 0 0 0 0.25rem color-mix(in oklab, var(--brand) 25%, transparent);
+    }
+
+/* ========== CLOCK STYLES ========== */
+#clock {
+    font-weight: 700;
+    transition: all .3s ease, filter .2s ease;
+    user-select: none;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .25rem .75rem;
+    border-radius: 999px;
+    backdrop-filter: saturate(120%) blur(6px);
+    border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+    background: linear-gradient(180deg, color-mix(in oklab, var(--card-bg) 70%, transparent), color-mix(in oklab, var(--card-bg) 20%, transparent));
+    color: var(--nav-fg);
+    text-shadow: 0 1px 0 rgba(0,0,0,.3);
+}
+
+    #clock:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.03);
+    }
+
+.clock-classic {
+    font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: .95rem;
+    letter-spacing: .2px;
+}
+
+.clock-monochrome {
+    background: #000;
+    color: #fff !important;
+    border-color: #222;
+    box-shadow: inset 0 0 0 1px #333;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+.clock-bright {
+    color: var(--accent) !important;
+    text-shadow: 0 0 14px color-mix(in oklab, var(--accent) 55%, transparent);
+    font-size: 1.05rem;
+}
+
+.clock-transparent {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    opacity: .85;
+}
+
+.clock-large {
+    font-size: 1.15rem;
+    padding: .4rem 1rem;
+}
+
+.clock-small {
+    font-size: .8rem;
+    padding: .15rem .5rem;
+}
+
+.clock-elegant {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    letter-spacing: .3px;
+}
+
+.clock-sharp {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: .9rem;
+}
+
+.clock-futuristic {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    color: #00fff7 !important;
+    text-shadow: 0 0 10px rgba(0,255,247,.6);
+}
+
+.clock-encrypted {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    text-shadow: 0 0 5px lime;
+}
+
+.clock-ring {
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--fg) 8%, transparent), 0 8px 24px rgba(0,0,0,.25);
+}
+
+    .clock-ring::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: inherit;
+        background: radial-gradient(ellipse at top left, color-mix(in oklab, var(--brand) 55%, transparent), transparent 60%), radial-gradient(ellipse at bottom right, color-mix(in oklab, var(--accent) 50%, transparent), transparent 60%);
+        opacity: .25;
+        pointer-events: none;
+    }
+
+@media (max-width: 576px) {
+    #clock {
+        font-size: .8rem;
+        padding: .15rem .5rem;
+    }
+
+    .navbar .form-select.form-select-sm {
+        min-width: 130px;
+    }
+}
+
+/* ========== DIFFICULTY BADGES ========== */
+.badge.easy {
+    background-color: var(--difficulty-easy);
+    color: #000;
+    font-weight: 600;
+}
+
+.badge.medium {
+    background-color: var(--difficulty-medium);
+    color: #000;
+    font-weight: 600;
+}
+
+.badge.hard {
+    background-color: var(--difficulty-hard);
+    color: #fff;
+    font-weight: 600;
+}
+
+
+/* 🔎 تحسينات خفيفة للـ UX مع الحفاظ على الديناميكية */
+
+/* تركيز (Focus) واضح ومتوافق مع الثيم */
+.user-menu .user-trigger:focus-visible,
+.user-dropdown .dropdown-item:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 .2rem color-mix(in oklab, var(--brand) 25%, transparent);
+    border-radius: 12px;
+}
+
+/* Hover للحفاظ على تباين جيد في كل الثيمات */
+.user-dropdown .dropdown-item:hover {
+    background: color-mix(in oklab, var(--bg) 76%, white 24%);
+}
+
+/* عنصر الخروج: تباين أعلى على الـ hover */
+.user-dropdown .dropdown-item.text-danger:hover {
+    background: color-mix(in oklab, #dc3545 24%, var(--bg) 76%);
+    color: #fff !important;
+}
+
+/* أيقونة السهم في الزر، تناغم لون وحجم بسيط */
+.user-menu .chev {
+    opacity: .7;
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+.user-menu .user-trigger:hover .chev {
+    opacity: 1;
+}
+
+/* تحسين زرّ Home/Stats مع الثيم */
+.navbar .btn.btn-outline-light.btn-sm {
+    --btn-border: color-mix(in oklab, var(--nav-fg) 35%, transparent);
+    border-color: var(--btn-border);
+    color: var(--nav-fg);
+}
+
+    .navbar .btn.btn-outline-light.btn-sm:hover {
+        background: color-mix(in oklab, var(--nav-bg) 70%, white 30%);
+        border-color: color-mix(in oklab, var(--nav-fg) 55%, transparent);
+    }

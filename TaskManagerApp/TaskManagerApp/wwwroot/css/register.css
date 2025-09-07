@@ -1,0 +1,99 @@
+﻿.register-wrap {
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.page-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    margin: .5rem 0 1rem;
+}
+
+    .page-head .icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--card-bg, #fff);
+        border: 1px solid var(--border, rgba(0,0,0,.12));
+        color: var(--fg, #212529);
+        box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+
+    .page-head h2 {
+        margin: 0;
+        font-weight: 800;
+        letter-spacing: .2px;
+        color: var(--fg, #212529);
+    }
+
+.card-surface {
+    background: var(--card-bg, #fff);
+    border: 1px solid var(--border, rgba(0,0,0,.12));
+    border-radius: 1rem;
+    box-shadow: 0 12px 32px rgba(0,0,0,.08);
+}
+
+.form-label {
+    font-weight: 700;
+    color: var(--fg, #212529);
+}
+
+.form-control {
+    background-color: var(--input-bg, var(--card-bg, #fff));
+    color: var(--fg, #212529);
+    border: 1px solid var(--input-border, var(--border, rgba(0,0,0,.12)));
+    border-radius: .75rem;
+    padding: .6rem .9rem;
+    transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+
+    .form-control::placeholder {
+        color: var(--muted, #6c757d);
+        opacity: .9;
+    }
+
+    .form-control:focus {
+        border-color: var(--brand, #0d6efd);
+        box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+        outline: none;
+        background-color: var(--input-focus-bg, var(--card-bg, #fff));
+        color: var(--fg, #212529);
+    }
+
+.alert {
+    border-radius: .75rem;
+}
+
+.btn-primary {
+    border-radius: .8rem;
+    box-shadow: 0 10px 26px rgba(0,0,0,.1);
+    transition: transform .15s ease;
+    background-color: var(--brand, #0d6efd);
+    border-color: var(--brand, #0d6efd);
+}
+
+    .btn-primary:hover {
+        transform: translateY(-1px);
+    }
+
+.auth-footer {
+    text-align: center;
+    margin-top: .75rem;
+    color: var(--muted, #6c757d);
+}
+
+    .auth-footer a {
+        text-decoration: none;
+    }
+
+/* responsiveness */
+@media (max-width: 576px) {
+    .btn-primary {
+        width: 100%;
+    }
+}

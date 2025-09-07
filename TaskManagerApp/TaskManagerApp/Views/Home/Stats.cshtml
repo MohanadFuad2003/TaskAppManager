@@ -1,0 +1,36 @@
+﻿@model TaskManagerApp.Models.TaskStatsViewModel
+@{
+    ViewData["Title"] = "Task Statistics";
+}
+<div class="text-center">
+    <h2 class="mb-4 text-dynamic">📊 Task Statistics</h2>
+
+    <div class="row justify-content-center g-3">
+        <div class="col-md-3">
+            <div class="card p-3 text-center">
+                <h5 class="text-dynamic">Total Tasks</h5>
+                <div class="display-6 fw-bold">@Model.Total</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-3 text-center border-success">
+                <h5 class="text-success">Done</h5>
+                <div class="display-6 fw-bold text-success">@Model.Done</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-3 text-center border-warning">
+                <h5 class="text-warning">Not Done</h5>
+                <div class="display-6 fw-bold text-warning">@Model.NotDone</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- زر رجوع للـ Index -->
+    <div class="mt-4">
+        <a asp-controller="Index" asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-arrow-left-short me-1"></i> Back to Tasks
+        </a>
+    </div>
+</div>
+
