@@ -1,37 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\mohan\\OneDrive\\Desktop\\TaskManagerApp\\TaskManagerApp\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{3DBCFCDE-AD6F-DB57-8F2C-1A38B06EDBDF}|TaskManagerApp.csproj|c:\\users\\mohan\\onedrive\\desktop\\taskmanagerapp\\taskmanagerapp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{3DBCFCDE-AD6F-DB57-8F2C-1A38B06EDBDF}|TaskManagerApp.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\mohan\\OneDrive\\Desktop\\TaskManagerApp\\TaskAppManager\\TaskManagerApp\\TaskManagerApp\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\mohan\\OneDrive\\Desktop\\TaskManagerApp\\TaskManagerApp\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\mohan\\OneDrive\\Desktop\\TaskManagerApp\\TaskManagerApp\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-09-07T18:36:26.848Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

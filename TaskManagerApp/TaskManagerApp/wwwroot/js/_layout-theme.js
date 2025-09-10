@@ -1,29 +1,27 @@
 ﻿// ===================== THEME =====================
 (function () {
     const themes = [
-        { value: "light", label: "🌞 Light" },
-        { value: "dark", label: "🌙 Dark" },
-        { value: "blue", label: "🔵 Blue" },
-        { value: "purple", label: "🟣 Purple" },
-        { value: "navy", label: "🌌 Navy" },
-        { value: "graymetal", label: "🧱 Gray Metal" },
-        { value: "green", label: "🌲 Green Dark" },
-        { value: "deepblue", label: "🌊 Deep Blue" },
-        { value: "chocolate", label: "🍫 Chocolate" },
-        { value: "trueblack", label: "🖤 Pure Black" },
-        { value: "royalpurple", label: "👑 Royal Purple" },
-        { value: "hotred", label: "🔥 Hot Red" },
-        { value: "cyanocean", label: "💧 Cyan Ocean" },
-        { value: "darkpink", label: "🌸 Dark Pink" }
+        { value: "light", label: " Light" },
+        { value: "dark", label: " Dark" },
+        { value: "blue", label: " Blue" },
+        { value: "purple", label: " Purple" },
+        { value: "navy", label: " Navy" },
+        { value: "graymetal", label: " Gray Metal" },
+        { value: "green", label: " Green Dark" },
+        { value: "deepblue", label: " Deep Blue" },
+        { value: "chocolate", label: " Chocolate" },
+        { value: "trueblack", label: " Pure Black" },
+        { value: "royalpurple", label: " Royal Purple" },
+        { value: "hotred", label: "Hot Red" },
+        { value: "cyanocean", label: "Cyan Ocean" },
+        { value: "darkpink", label: "Dark Pink" }
     ];
 
     const STORAGE_KEY = "theme";
     const themeSelector = document.getElementById("themeSelector");
     const savedTheme = localStorage.getItem(STORAGE_KEY) || "light";
 
-    // helper: ازالة فقط كلاسات الثيم الحالية
     function removeThemeClasses() {
-        // اجمع الأسماء أولاً لتجنب تعديل المجموعة أثناء التكرار
         const toRemove = [];
         document.body.classList.forEach(cls => {
             if (cls.startsWith("theme-")) toRemove.push(cls);
@@ -31,7 +29,6 @@
         toRemove.forEach(cls => document.body.classList.remove(cls));
     }
 
-    // طبّق ثيم
     function applyTheme(themeValue) {
         removeThemeClasses();
         document.body.classList.add("theme-" + themeValue);
@@ -39,9 +36,7 @@
         document.dispatchEvent(new CustomEvent("theme:changed", { detail: { theme: themeValue } }));
     }
 
-    // عبّي القائمة إن وُجدت
     if (themeSelector) {
-        // نظف ثم املأ مرة واحدة
         themeSelector.innerHTML = "";
         themes.forEach(t => {
             const opt = document.createElement("option");
@@ -54,7 +49,6 @@
         themeSelector.addEventListener("change", () => applyTheme(themeSelector.value));
     }
 
-    // طبّق الثيم المحفوظ عند التحميل
     applyTheme(savedTheme);
 })();
 
@@ -71,9 +65,8 @@
     const clockStyleSelector = document.getElementById("clockStyleSelector");
     const savedClockStyle = localStorage.getItem(CLOCK_KEY) || "classic";
 
-    if (!clock) return; // لا شيء نعمله إن ما في عنصر ساعة
+    if (!clock) return; 
 
-    // عبّي الخيارات إن وُجدت القائمة
     if (clockStyleSelector) {
         clockStyleSelector.innerHTML = "";
         clockStyles.forEach(style => {
@@ -100,7 +93,6 @@
     }
 
     function applyClockStyle(style) {
-        // احتفظ بـ "clock-ring" دائمًا + النمط المختار
         clock.className = "clock-" + style + " clock-ring";
     }
 

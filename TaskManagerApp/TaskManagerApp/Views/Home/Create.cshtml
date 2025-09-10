@@ -19,7 +19,6 @@
 
                 <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-                <!-- 📝 عنوان المهمة -->
                 <div class="mb-3">
                     <label asp-for="Title" class="form-label"></label>
                     <input asp-for="Title" class="form-control" placeholder="e.g. Submit lab report" />
@@ -27,7 +26,6 @@
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
 
-                <!-- ✅ اختيار الصعوبة -->
                 <div class="mb-3">
                     <label class="form-label">Difficulty</label>
                     <div class="form-check">
@@ -45,13 +43,11 @@
                     <span asp-validation-for="Difficulty" class="text-danger"></span>
                 </div>
 
-                <!-- ✅ تم إنجازه -->
                 <div class="form-check mb-4">
                     <input asp-for="IsDone" class="form-check-input" id="isDone" />
                     <label asp-for="IsDone" class="form-check-label" for="isDone">Mark as Done</label>
                 </div>
 
-                <!-- ✅ زر الإرسال -->
                 <button type="submit" class="btn btn-primary w-100">
                     <i class="bi bi-check2-circle me-1"></i> Add Task
                 </button>

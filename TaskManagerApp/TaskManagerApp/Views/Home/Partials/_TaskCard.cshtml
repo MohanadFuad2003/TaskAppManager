@@ -3,7 +3,6 @@
 
 <div class="task-card">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-        <!-- Left: Title + Status + Difficulty -->
         <div class="d-flex flex-column flex-grow-1">
             <div class="d-flex align-items-center gap-2">
                 <span class="status-dot @(Model.IsDone ? "dot-done" : "dot-pending")"></span>
@@ -22,7 +21,6 @@
                     </span>
                 }
 
-                <!-- Difficulty Chip -->
                 @if (!string.IsNullOrWhiteSpace(Model.Difficulty))
                 {
                     var diffClass = Model.Difficulty switch
@@ -38,7 +36,6 @@
                 }
             </div>
 
-            <!-- Deadline / Countdown -->
             @if (Model.DueDate.HasValue && !Model.IsDone)
             {
                 <div class="small mt-1 due-info">
@@ -55,7 +52,6 @@
             }
         </div>
 
-        <!-- Right: Actions -->
         <div class="d-flex align-items-center gap-2 actions">
             <small class="text-dynamic me-2">ID: @Model.Id</small>
 

@@ -8,15 +8,13 @@ namespace TaskManagerApp.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Title is required.")]
-        public string Title { get; set; }
+        public string ? Title { get; set; }
 
         public bool IsDone { get; set; }
 
-        // مستوى الصعوبة: Easy, Medium, Hard
         [Required(ErrorMessage = "Please select a difficulty.")]
-        public string Difficulty { get; set; }
+        public string ? Difficulty { get; set; }
 
-        // يُحدد تلقائياً حسب الصعوبة
         [Display(Name = "Due Date")]
         public DateTime? DueDate { get; set; }
 

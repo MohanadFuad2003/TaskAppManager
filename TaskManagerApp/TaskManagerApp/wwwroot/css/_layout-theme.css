@@ -9,17 +9,14 @@
     --border: rgba(0,0,0,.08);
     --accent: #84d2ff;
     --shadow: 0 6px 20px rgba(0,0,0,.12);
-    /* Difficulty Colors (default) */
     --difficulty-easy: #b2f2bb;
     --difficulty-medium: #ffcc00;
     --difficulty-hard: #d6336c;
 }
 
-/* ===== Theme base (استخدم contains بدل starts-with) ===== */
 body[class*="theme-"] {
     background: var(--bg);
     color: var(--fg);
-    /* Bridge: غذي متغيرات Bootstrap من ثيمك */
     --bs-body-bg: var(--bg);
     --bs-body-color: var(--fg);
     --bs-border-color: var(--border);
@@ -267,14 +264,11 @@ body.theme-darkpink {
     --difficulty-hard: #f43f5e;
 }
 
-/* ========== GENERIC UI ========== */
-/* لو واجهت خط أبيض بين الهيدر والمحتوى، يمكنك صلب خلفية الهيدر بإلغاء التدرّج تحت */
+
 .navbar {
     background: linear-gradient(180deg, var(--nav-bg), color-mix(in oklab, var(--nav-bg) 85%, black));
-    /* بديل صلب:
-       background: var(--nav-bg) !important;
-       background-image: none !important;
-    */
+ 
+    
     box-shadow: 0 10px 30px rgba(0,0,0,.25);
 }
 
@@ -294,15 +288,11 @@ body.theme-darkpink {
 /* Footer */
 .footer {
     background: color-mix(in oklab, var(--nav-bg) 92%, #0000);
-    /* أو اجعله صلبًا إن ظهر خط:
-       background: var(--nav-bg) !important;
-       background-image: none !important;
-    */
+   
     color: var(--nav-fg);
     border-top: 1px solid var(--border) !important;
 }
 
-/* عناصر شائعة تتبع الثيم */
 .card {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -471,9 +461,7 @@ body.theme-darkpink {
 }
 
 
-/* 🔎 تحسينات خفيفة للـ UX مع الحفاظ على الديناميكية */
 
-/* تركيز (Focus) واضح ومتوافق مع الثيم */
 .user-menu .user-trigger:focus-visible,
 .user-dropdown .dropdown-item:focus-visible {
     outline: none;
@@ -481,18 +469,15 @@ body.theme-darkpink {
     border-radius: 12px;
 }
 
-/* Hover للحفاظ على تباين جيد في كل الثيمات */
 .user-dropdown .dropdown-item:hover {
     background: color-mix(in oklab, var(--bg) 76%, white 24%);
 }
 
-/* عنصر الخروج: تباين أعلى على الـ hover */
 .user-dropdown .dropdown-item.text-danger:hover {
     background: color-mix(in oklab, #dc3545 24%, var(--bg) 76%);
     color: #fff !important;
 }
 
-/* أيقونة السهم في الزر، تناغم لون وحجم بسيط */
 .user-menu .chev {
     opacity: .7;
     transition: transform .2s ease, opacity .2s ease;
@@ -502,7 +487,6 @@ body.theme-darkpink {
     opacity: 1;
 }
 
-/* تحسين زرّ Home/Stats مع الثيم */
 .navbar .btn.btn-outline-light.btn-sm {
     --btn-border: color-mix(in oklab, var(--nav-fg) 35%, transparent);
     border-color: var(--btn-border);

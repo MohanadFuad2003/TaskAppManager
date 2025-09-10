@@ -46,11 +46,9 @@ namespace TaskManagerApp.Controllers
 
             if (result.Succeeded)
             {
-                // أولاً: لو في returnUrl محلي، نرجع له
                 if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
                     return Redirect(returnUrl);
 
-                // بدلاً من Home (اللي انحذف)، نوجّه إلى IndexController → Index
                 return RedirectToAction("Index", "Index");
             }
 

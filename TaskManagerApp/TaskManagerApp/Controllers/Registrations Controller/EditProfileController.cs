@@ -50,7 +50,6 @@ namespace TaskManagerApp.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login", "Login");
 
-            // تحديث البريد واسم المستخدم (نجعل UserName = Email) + الهاتف
             user.Email = model.Email?.Trim();
             user.UserName = model.Email?.Trim();
             user.PhoneNumber = model.PhoneNumber?.Trim();
@@ -64,7 +63,6 @@ namespace TaskManagerApp.Controllers
                 return View("~/Views/Account/EditProfile.cshtml", model);
             }
 
-            // تحديث Claim الاسم الكامل
             var claims = await _userManager.GetClaimsAsync(user);
             var oldFullNameClaim = claims.FirstOrDefault(c => c.Type == "FullName");
             if (oldFullNameClaim != null)
@@ -73,7 +71,6 @@ namespace TaskManagerApp.Controllers
             if (!string.IsNullOrWhiteSpace(model.FullName))
                 await _userManager.AddClaimAsync(user, new Claim("FullName", model.FullName.Trim()));
 
-            // تحديث الكوكيز (لنعكس الاسم فوراً في الهيدر)
             await _signInManager.RefreshSignInAsync(user);
 
             TempData["SuccessMessage"] = "Profile updated successfully.";
